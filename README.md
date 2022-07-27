@@ -17,7 +17,7 @@ This repository has two sections:
 1. A [publically editable wiki](https://github.com/davidferguson/dolby-srd/wiki) documenting information about the Dolby SR•D format, as well as the equipment used to encode/decode/process it
 2. Files relating to the reverse engineering effort, including equipment manuals, logic capture dumps, utility programs, etc.
 
-**Any help is most welcome! Especially for file format/signal analysis. Have a look at the [current work/status]() wiki page to see how you can get involved.**
+**Any help is most welcome! Especially for file format/signal analysis. Have a look at the [current work/status](https://github.com/davidferguson/dolby-srd/wiki/status) wiki page to see how you can get involved.**
 
 [^1]: The first demonstrations of Dolby Digital on 35mm were made in April 1991, but it wasn't until 1992 with _Batman Returns_ that a film was released using it.
 [^2]: https://www.atsc.org/wp-content/uploads/2016/03/a_52-2015.pdf
