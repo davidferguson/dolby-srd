@@ -136,6 +136,12 @@ class SRDFixelFrame():
             cv.circle(self.colour_img, (round(x + (self.fixel_size / 2)), round(y + (self.fixel_size / 2))), 3, (0, 255, 0))
         return boolean_value
 
+    # currently unused, used to generate the images in the wiki of this repo
+    def label_fixel(self, fixel_x, fixel_y, label, color):
+        x = round(fixel_x * self.fixel_size)
+        y = round(fixel_y * self.fixel_size)
+        cv.putText(self.colour_img, label, (round(x + self.fixel_size * 0), round(y + self.fixel_size * 1)), 1, 1, color)
+
     def get_byte_value(self, byte_x, byte_y):
         bits = 0
         byte_x_offset = byte_x * BYTE_WIDTH
@@ -174,6 +180,15 @@ class SRDFixelFrame():
                     total += 1
         print('{correct} / {total} correct'.format(correct=correct, total=total))
 
+    def print_blocknumber(self):
+        lower = self.get_byte_value(25, 11)
+        middle = self.get_byte_value(27, 11)
+        upper = self.get_byte_value(26, 11)
+        
+        block_number = ((upper << 16 & 3) | 65535) & (middle << 8 | 255 | 255 << 16) & (lower | 65535 << 8)
+        reel_number = upper >> 2
+        print('Block: {block}, reel: {reel}'.format(block=block_number, reel=reel_number))
+
     def print_ascii(self):
         byte_indexes = [
             [29, 11],
@@ -187,7 +202,8 @@ class SRDFixelFrame():
             [37, 11],
             [36, 11],
         ]
+        ascii = ''
         for x, y in byte_indexes:
             val = self.get_byte_value(x, y)
-            print(chr(val), end='')
-        print('\n', end='')
+            ascii += chr(val)
+        print('ASCII: {ascii}'.format(ascii=ascii))

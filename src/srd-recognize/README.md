@@ -24,6 +24,15 @@ Run the script against an image file with:
 foo@bar:~$ python dolby_digital_decode.py samples/00000.jpg
 ```
 
+Which will give the following output, showing the number of correctly identified known markers, the result of the ASCII, and the block and reel number.
+
+```console
+420 / 420 correct
+ASCII: DOLBY SR*D
+Block: 252, reel: 1
+Showing recognized pattern, press any key to continue
+```
+
 You can add `--grid` to the script to make it show where it detected the grid of fixels to be.
 
 ## Thanks

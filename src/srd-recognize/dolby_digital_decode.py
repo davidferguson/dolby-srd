@@ -12,9 +12,7 @@ def main(grid, file):
     frame.detect_corner_scale()
     frame.find_corners()
     frame.apply_thresholding()
-    cv.imshow('', frame.thresholded)
     frame.reframe()
-    cv.imshow('', frame.reframed)
 
     if grid:
         frame.draw_grid()
@@ -22,6 +20,7 @@ def main(grid, file):
     frame.decode()
     frame.check_known_patterns()
     frame.print_ascii()
+    frame.print_blocknumber()
 
     cv.imshow("pattern", frame.colour_img)
     print('Showing recognized pattern, press any key to continue')
