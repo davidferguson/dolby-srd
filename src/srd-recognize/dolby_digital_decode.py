@@ -21,6 +21,7 @@ def main(grid, file):
     frame.check_known_patterns()
     frame.print_ascii()
     frame.print_blocknumber()
+    frame.output_binary_file("output.bin")
 
     cv.imshow("pattern", frame.colour_img)
     print('Showing recognized pattern, press any key to continue')

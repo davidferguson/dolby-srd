@@ -207,3 +207,10 @@ class SRDFixelFrame():
             val = self.get_byte_value(x, y)
             ascii += chr(val)
         print('ASCII: {ascii}'.format(ascii=ascii))
+
+    def output_binary_file(self, output_filename):
+        with open(output_filename, "ab") as file:
+            for row in range(19):
+                for col in range(38):
+                    val = self.get_byte_value(col, row)
+                    file.write(val.to_bytes(1))
